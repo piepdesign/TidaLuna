@@ -20,7 +20,7 @@ export interface LunaPluginComponentProps extends PropsWithChildren {
 export const LunaPluginHeader = React.memo(({ name, version, loadError, author, desc, children, sx, link }: LunaPluginComponentProps) => (
 	<Box sx={sx}>
 		<Stack direction="row" alignItems="center" spacing={1}>
-			<Typography variant="h6">
+			<Typography variant="h6" sx={{ minWidth: 0, overflowWrap: "anywhere" }}>
 				<LunaLink href={link}>{name}</LunaLink>
 				{version && <Typography variant="caption" style={{ opacity: 0.7, marginLeft: 6 }} children={version} />}
 			</Typography>
@@ -40,7 +40,7 @@ export const LunaPluginHeader = React.memo(({ name, version, loadError, author, 
 				/>
 			)}
 			<Box sx={{ flexGrow: 1 }} /> {/* This pushes the author section to the right */}
-			{author && <LunaAuthorDisplay author={author} />}
+			{author && <LunaAuthorDisplay author={author} sx={{ flexShrink: 0 }} />}
 		</Stack>
 		{desc && <Typography variant="subtitle2" gutterBottom children={desc} />}
 	</Box>
